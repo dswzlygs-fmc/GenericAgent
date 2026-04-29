@@ -72,6 +72,7 @@ if __name__ == '__main__':
     parser.add_argument('--wecom', action='store_true', help='启动 WeCom Bot');
     parser.add_argument('--dingtalk', '--dt', dest='dingtalk', action='store_true', help='启动 DingTalk Bot');
     parser.add_argument('--sched', action='store_true', help='启动计划任务调度器')
+    parser.add_argument('--wechat', action='store_true', help='启动微信 Bot')
     parser.add_argument('--llm_no', type=int, default=0, help='LLM编号')
     args = parser.parse_args()
     port = str(find_free_port()) if args.port == '0' else args.port
@@ -107,6 +108,12 @@ if __name__ == '__main__':
         atexit.register(dtproc.kill)
         print('[Launch] DingTalk Bot started')
     else: print('[Launch] DingTalk Bot not enabled (use --dingtalk to start)')
+
+    if args.wechat:
+        wxproc = subprocess.Popen([sys.executable, os.path.join(script_dir, 'wechat_bot.pyw')], creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
+        atexit.register(wxproc.kill)
+        print('[Launch] WeChat Bot started')
+    else: print('[Launch] WeChat Bot not enabled (use --wechat to start)')
     
     if args.sched:
         scheduler_proc = subprocess.Popen([sys.executable, os.path.join(script_dir, "agentmain.py"), "--reflect", os.path.join(script_dir, "reflect", "scheduler.py"), "--llm_no", str(args.llm_no)], creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
