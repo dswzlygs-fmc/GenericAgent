@@ -92,7 +92,10 @@ memory/L4_raw_sessions/*
 .vs/
 restore_commit.txt
 
+# sche_tasks: 允许JSON任务定义
+!sche_tasks/
 sche_tasks/
+!sche_tasks/*.json
 # CDP Bridge 密钥配置（首次运行自动生成）
 assets/tmwd_cdp_bridge/config.js
 assets/copilot_proxy.pyw

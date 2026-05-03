@@ -1,0 +1,1 @@
+﻿{"schedule":"21:00","repeat":"daily","enabled":true,"prompt":"你是我的每日总结助手。扫描 temp/model_responses/ 目录下当天的会话记录，提取当日主要进展，总结3-5条。询问用户是否要提交到Git仓库。","max_delay_hours":3}
