@@ -1,0 +1,2 @@
+<tool_use>
+{"name": "file_write", "arguments": {"path": "../memory/wintoast_forms_sop.md", "mode": "overwrite", "file_content": "# WinToast Forms SOP\n\n## 场景\n本地零依赖弹通知，避免 COM 策略阻断。\n\n## 步骤\n1. 生成 PS1：\n   ```powershell\n   Add-Type -AssemblyName System.Windows.Forms\n   $balloon = New-Object System.Windows.Forms.NotifyIcon\n   $balloon.Icon = [System.Drawing.SystemIcons]::Information\n   $balloon.Visible = $true\n   $balloon.ShowBalloonTip(3000, \"Title\", \"Body\", [System.Windows.Forms.ToolTipIcon]::Info)\n   Start-Sleep -Seconds 4\n   $balloon.Dispose()\n
