@@ -120,14 +120,9 @@ assets/copilot_proxy.pyw
 reflect/*
 !reflect/autonomous.py
 !reflect/scheduler.py
+!reflect/agent_team_worker.py
 
 # Universal: never track __pycache__ anywhere
 **/__pycache__/
 
-# 从bak迁移的记忆文件
-!memory/fhir_r4_kg_sop.md
-!memory/kimi_2.6_vs_2.5_for_data要素_dev.md
-!memory/kindergarten_ppt_quick_sop.md
-!memory/oia_config.json
-!memory/wintoast_forms_sop.md
-!memory/ws363_pdf_parse_sop.md
+.claude/
